@@ -104,3 +104,21 @@ DB_DATABASE=your_database_name
 DB_USERNAME=root
 DB_PASSWORD="your_password"
 ```
+
+### Useful Laravel Migration Commands
+
+| **Command** | **Description** | **Example Usage** |
+|-------------|-----------------|-------------------|
+| `php artisan make:migration` | Creates a new migration file. | `php artisan make:migration create_users_table` |
+| `php artisan migrate` | Runs all pending migrations in the `database/migrations` directory. | `php artisan migrate` |
+| `php artisan migrate:rollback` | Rolls back the last batch of migrations. | `php artisan migrate:rollback` |
+| `php artisan migrate:reset` | Rolls back all migrations. | `php artisan migrate:reset` |
+| `php artisan migrate:refresh` | Rolls back all migrations and re-runs them. | `php artisan migrate:refresh` |
+| `php artisan migrate:fresh` | Drops all tables and re-runs all migrations from scratch. | `php artisan migrate:fresh` |
+| `php artisan migrate:status` | Shows the status of each migration (whether it has been run or not). | `php artisan migrate:status` |
+| `php artisan migrate:rollback --step={number}` | Rolls back the last `{number}` batches of migrations. | `php artisan migrate:rollback --step=2` |
+| `php artisan migrate --path={path}` | Runs migrations from a specific path. | `php artisan migrate --path=/database/migrations/special` |
+| `php artisan migrate --seed` | Runs migrations and seeds the database. | `php artisan migrate --seed` |
+| `php artisan migrate:refresh --seed` | Refreshes migrations and seeds the database. | `php artisan migrate:refresh --seed` |
+| `php artisan migrate:fresh --seed` | Drops all tables, runs migrations, and seeds the database. | `php artisan migrate:fresh --seed` |
+| `php artisan migrate:install` | Creates the `migrations` table in the database (tracks migration status). | `php artisan migrate:install` |
