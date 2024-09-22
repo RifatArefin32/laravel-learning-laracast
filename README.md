@@ -93,3 +93,14 @@ Namespaces in Laravel help organize code and prevent class name conflicts. They 
 Models in Laravel represent database tables and allow you to interact with the data. They are typically stored in the `app/Models` directory and extend the `Illuminate\Database\Eloquent\Model` class, providing an Active Record implementation for database operations.
 - Location: `app/Models` (default).
 - Example: `User::all()` retrieves all records from the users table.
+
+# Day-8: Introduction with Migration
+Create a database for the project in MySQL and configure the database at `.env` file.
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_name
+DB_USERNAME=root
+DB_PASSWORD="your_password"
+```
