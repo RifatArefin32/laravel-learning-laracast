@@ -93,3 +93,64 @@ Namespaces in Laravel help organize code and prevent class name conflicts. They 
 Models in Laravel represent database tables and allow you to interact with the data. They are typically stored in the `app/Models` directory and extend the `Illuminate\Database\Eloquent\Model` class, providing an Active Record implementation for database operations.
 - Location: `app/Models` (default).
 - Example: `User::all()` retrieves all records from the users table.
+
+# Day-8: Introduction with Migration
+Create a database for the project in MySQL and configure the database at `.env` file.
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_name
+DB_USERNAME=root
+DB_PASSWORD="your_password"
+```
+
+### Useful Laravel Migration Commands
+
+| **Command** | **Description** | **Example Usage** |
+|-------------|-----------------|-------------------|
+| `php artisan make:migration` | Creates a new migration file. | `php artisan make:migration create_users_table` |
+| `php artisan migrate` | Runs all pending migrations in the `database/migrations` directory. | `php artisan migrate` |
+| `php artisan migrate:rollback` | Rolls back the last batch of migrations. | `php artisan migrate:rollback` |
+| `php artisan migrate:reset` | Rolls back all migrations. | `php artisan migrate:reset` |
+| `php artisan migrate:refresh` | Rolls back all migrations and re-runs them. | `php artisan migrate:refresh` |
+| `php artisan migrate:fresh` | Drops all tables and re-runs all migrations from scratch. | `php artisan migrate:fresh` |
+| `php artisan migrate:status` | Shows the status of each migration (whether it has been run or not). | `php artisan migrate:status` |
+| `php artisan migrate:rollback --step={number}` | Rolls back the last `{number}` batches of migrations. | `php artisan migrate:rollback --step=2` |
+| `php artisan migrate --path={path}` | Runs migrations from a specific path. | `php artisan migrate --path=/database/migrations/special` |
+| `php artisan migrate --seed` | Runs migrations and seeds the database. | `php artisan migrate --seed` |
+| `php artisan migrate:refresh --seed` | Refreshes migrations and seeds the database. | `php artisan migrate:refresh --seed` |
+| `php artisan migrate:fresh --seed` | Drops all tables, runs migrations, and seeds the database. | `php artisan migrate:fresh --seed` |
+| `php artisan migrate:install` | Creates the `migrations` table in the database (tracks migration status). | `php artisan migrate:install` |
+
+- Run a migration command `php artisan migrate` 
+- Create a migration file for `job_items` table
+- Setup the table schema and run migration command
+
+### Common Migration Methods  in Laravel
+
+| **Type Method** | **Description** | **Example** |
+|------------|-----------------|-------------------|
+| `string($column, $length = 255)` | Creates a VARCHAR equivalent column (default length is 255). | `$table->string('name');`|
+| `text($column)`| Creates a TEXT equivalent column.| `$table->text('description');`|
+| `integer($column)`| Creates an INTEGER equivalent column.| `$table->integer('age');`|
+| `bigInteger($column)`| Creates a BIGINT equivalent column.| `$table->bigInteger('views');`|
+| `smallInteger($column)`| Creates a SMALLINT equivalent column.| `$table->smallInteger('rank');`|
+| `tinyInteger($column)`| Creates a TINYINT equivalent column.| `$table->tinyInteger('status');`|
+| `float($column, $precision = 8, $scale = 2)` | Creates a FLOAT equivalent column with precision.|`$table->float('price', 8, 2);`|
+| `double($column, $precision = 15, $scale = 8)`| Creates a DOUBLE equivalent column with precision.|`$table->double('amount', 15, 8);`|
+| `decimal($column, $precision, $scale)`| Creates a DECIMAL equivalent column with precision. | `$table->decimal('total', 10, 2);`|
+| `boolean($column)`         | Creates a BOOLEAN equivalent column. | `$table->boolean('is_active');`|
+| `date($column)`            | Creates a DATE equivalent column. | `$table->date('birthdate');`|
+| `dateTime($column)`        | Creates a DATETIME equivalent column. | `$table->dateTime('created_at');`|
+| `timestamp($column)`       | Creates a TIMESTAMP equivalent column. | `$table->timestamp('updated_at');`|
+| `enum($column, array $values)` | Creates an ENUM equivalent column. | `$table->enum('role', ['admin', 'user']);` |
+| `json($column)`            | Creates a JSON equivalent column. | `$table->json('options');`                |
+
+| **Constraint Method** | **Description** | **Example** |
+|------------|-----------------|-------------------|
+| `nullable()`               | Makes the column nullable. | `$table->string('email')->nullable();`   |
+| `unique()`                 | Adds a unique constraint to the column. | `$table->string('username')->unique();`   |
+| `default($value)`          | Sets a default value for the column. | `$table->integer('score')->default(0);`  |
+| `after($column)`           | Places the new column after an existing column. | `$table->string('nickname')->after('name');` |
+| `first()`                  | Places the new column at the beginning of the table. | `$table->string('id_number')->first();`|
