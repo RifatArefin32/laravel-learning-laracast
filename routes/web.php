@@ -13,6 +13,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+class Job {
+    public static function all() {
+        return [
+            [
+                'id' => 1,
+                'title' => 'Associate Software Engineer',
+                'salary' => 50000,
+                'currency' => 'BDT'
+            ],
+            [
+                'id' => 2,
+                'title' => 'Software Engineer',
+                'salary' => 70000,
+                'currency' => 'BDT'
+            ],
+            [
+                'id' => 3,
+                'title' => 'Senior Software Engineer',
+                'salary' => 120000,
+                'currency' => 'BDT'
+            ],
+        ];
+    }
+}
+
+
 Route::get('/', function () {
     return view('home', [
         'greeting' => 'Hello',
@@ -29,5 +55,7 @@ Route::get('/contact', function() {
 });
 
 Route::get('/jobs', function() {
-    return view('jobs');
+    return view('jobs', [
+        'jobs' => Job::all()
+    ]);
 });
