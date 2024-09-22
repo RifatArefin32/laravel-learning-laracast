@@ -71,3 +71,5 @@ Add Play CDN script inside the layout and add a layout design from tailwind.css
 ### Notes
 - **Props** in Laravel Blade are mainly used to pass data to Blade components.
 - **Blade Directives** provide a set of predefined syntaxes for common programming structures and templating needs in Blade views.
+
+# Day-6: View Data Items and Route Wildcards
