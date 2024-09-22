@@ -122,3 +122,35 @@ DB_PASSWORD="your_password"
 | `php artisan migrate:refresh --seed` | Refreshes migrations and seeds the database. | `php artisan migrate:refresh --seed` |
 | `php artisan migrate:fresh --seed` | Drops all tables, runs migrations, and seeds the database. | `php artisan migrate:fresh --seed` |
 | `php artisan migrate:install` | Creates the `migrations` table in the database (tracks migration status). | `php artisan migrate:install` |
+
+- Run a migration command `php artisan migrate` 
+- Create a migration file for `job_items` table
+- Setup the table schema and run migration command
+
+### Common Migration Methods  in Laravel
+
+| **Type Method** | **Description** | **Example** |
+|------------|-----------------|-------------------|
+| `string($column, $length = 255)` | Creates a VARCHAR equivalent column (default length is 255). | `$table->string('name');`|
+| `text($column)`| Creates a TEXT equivalent column.| `$table->text('description');`|
+| `integer($column)`| Creates an INTEGER equivalent column.| `$table->integer('age');`|
+| `bigInteger($column)`| Creates a BIGINT equivalent column.| `$table->bigInteger('views');`|
+| `smallInteger($column)`| Creates a SMALLINT equivalent column.| `$table->smallInteger('rank');`|
+| `tinyInteger($column)`| Creates a TINYINT equivalent column.| `$table->tinyInteger('status');`|
+| `float($column, $precision = 8, $scale = 2)` | Creates a FLOAT equivalent column with precision.|`$table->float('price', 8, 2);`|
+| `double($column, $precision = 15, $scale = 8)`| Creates a DOUBLE equivalent column with precision.|`$table->double('amount', 15, 8);`|
+| `decimal($column, $precision, $scale)`| Creates a DECIMAL equivalent column with precision. | `$table->decimal('total', 10, 2);`|
+| `boolean($column)`         | Creates a BOOLEAN equivalent column. | `$table->boolean('is_active');`|
+| `date($column)`            | Creates a DATE equivalent column. | `$table->date('birthdate');`|
+| `dateTime($column)`        | Creates a DATETIME equivalent column. | `$table->dateTime('created_at');`|
+| `timestamp($column)`       | Creates a TIMESTAMP equivalent column. | `$table->timestamp('updated_at');`|
+| `enum($column, array $values)` | Creates an ENUM equivalent column. | `$table->enum('role', ['admin', 'user']);` |
+| `json($column)`            | Creates a JSON equivalent column. | `$table->json('options');`                |
+
+| **Constraint Method** | **Description** | **Example** |
+|------------|-----------------|-------------------|
+| `nullable()`               | Makes the column nullable. | `$table->string('email')->nullable();`   |
+| `unique()`                 | Adds a unique constraint to the column. | `$table->string('username')->unique();`   |
+| `default($value)`          | Sets a default value for the column. | `$table->integer('score')->default(0);`  |
+| `after($column)`           | Places the new column after an existing column. | `$table->string('nickname')->after('name');` |
+| `first()`                  | Places the new column at the beginning of the table. | `$table->string('id_number')->first();`|
