@@ -38,9 +38,17 @@ Route::get('/example', function () {
 });
 ```
 
-
 ### Views
 In Laravel, a `view` is a way to separate our application’s logic from its presentation layer. 
 - Views are used to represent the output or user interface of your application and typically contain HTML mixed with some **`Laravel Blade templating code`**. 
 - Views are stored in the `./resources/views` directory.
 
+# Day-3: Create layout files using laravel components
+Laravel components provide a convenient way to create reusable pieces of UI, making it easier to build layouts and encapsulate small pieces of your application's views into self-contained components.
+
+- Create a component directory `./resources/views/components`
+- Create a component file `./resources/views/components/layout.blade.php`
+- Use this `layout` component at any view file using `<x-layout> some slot value </x-layout>`
+- The main content for the layout component is accessed as `$slot` variable
+- We can pass some value of the variables in the layout using `<x-slot:variable_name> value </x-slot:variable_name>`
+- Components access the attributes of an HTML element as `$attributes` variable
