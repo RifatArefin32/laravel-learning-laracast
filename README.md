@@ -79,3 +79,17 @@ Route::get('/jobs/{id}', function($id) {
     // do something
 }
 ```
+
+# Day-7: Autoloading, Namespaces and Models
+### Autoloading
+Autoloading in Laravel is managed through `Composer`. It automatically loads PHP classes from predefined directories when they are needed, following the **PSR-4** standard. By default, the app directory is autoloaded, so you can use any class within it without requiring manual inclusion.
+- Configured in: `composer.json` (autoload section).
+- Example: Class `App\Models\User` will be autoloaded when you reference `User` in your code.
+
+### Namespaces
+Namespaces in Laravel help organize code and prevent class name conflicts. They map to directory structures and are used to group related classes. Laravel uses namespaces to differentiate between different parts of the application, such as models, controllers, and custom libraries.
+
+### Models
+Models in Laravel represent database tables and allow you to interact with the data. They are typically stored in the `app/Models` directory and extend the `Illuminate\Database\Eloquent\Model` class, providing an Active Record implementation for database operations.
+- Location: `app/Models` (default).
+- Example: `User::all()` retrieves all records from the users table.
