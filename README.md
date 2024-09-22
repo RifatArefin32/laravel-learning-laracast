@@ -58,3 +58,16 @@ Add Play CDN script inside the layout and add a layout design from tailwind.css
 ```bash
  <script src="https://cdn.tailwindcss.com"></script>
 ```
+
+# Day-5: Props and Blade Directives
+
+| **Feature** | **Description** | **Syntax Example** |
+|-------------|-----------------|--------------------|
+| **Props** | Data passed from parent to child Blade components | `<x-alert type="success" message="Operation successful!" />` |
+| **@props** | Declares which data a component expects when using inline Blade components. | `@props(['type' => 'info', 'message'])` |
+| **@foreach, @for**| Loop directives for iterating over data in Blade views. | `@foreach($items as $item) <li>{{ $item }}</li> @endforeach` |
+| **@if, @else, @elseif** | Conditional directives for adding logic to Blade views. | `@if($user) <p>Hello, {{ $user }}</p> @else <p>Guest</p> @endif` |
+
+### Notes
+- **Props** in Laravel Blade are mainly used to pass data to Blade components.
+- **Blade Directives** provide a set of predefined syntaxes for common programming structures and templating needs in Blade views.
