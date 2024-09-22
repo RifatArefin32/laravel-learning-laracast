@@ -80,7 +80,7 @@ Route::get('/jobs/{id}', function($id) {
 }
 ```
 
-# Day-7: Autoloading, Namespaces and Models in Laravel
+# Day-7: Autoloading, Namespaces and Models
 ### Autoloading
 Autoloading in Laravel is managed through `Composer`. It automatically loads PHP classes from predefined directories when they are needed, following the **PSR-4** standard. By default, the app directory is autoloaded, so you can use any class within it without requiring manual inclusion.
 - Configured in: `composer.json` (autoload section).
