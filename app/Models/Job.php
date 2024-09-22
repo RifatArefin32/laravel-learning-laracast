@@ -2,43 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Arr;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Job
+class Job extends Model
 {
-    public static function all()
-    {
-        return [
-            [
-                'id' => 1,
-                'title' => 'Associate Software Engineer',
-                'salary' => 50000,
-                'currency' => 'BDT'
-            ],
-            [
-                'id' => 2,
-                'title' => 'Software Engineer',
-                'salary' => 70000,
-                'currency' => 'BDT'
-            ],
-            [
-                'id' => 3,
-                'title' => 'Senior Software Engineer',
-                'salary' => 120000,
-                'currency' => 'BDT'
-            ],
-        ];
-    }
+    use HasFactory;
 
-    public static function find($id)
-    {
-        $jobs = static::all();
-        $job = Arr::first($jobs, function ($job) use ($id) {
-            return $job['id'] == $id;
-        });
-
-        if(!$job) abort(404);
-        
-        return $job;
-    }
+    /**
+     * laravel has previously a table named `jobs` 
+     * This table is created by the system.
+     * So we have to create another table name `job_items`
+     * and specify it in the class definition
+     */
+    protected $table = 'job_items'; 
+    protected $fillable = ['title', 'salary', 'currency', 'description'];
 }
