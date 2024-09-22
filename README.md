@@ -10,6 +10,7 @@
 - [View data items and route wildcards](#day-6-view-data-items-and-route-wildcards)
 - [Autoloading namespaces and models](#day-7-autoloading-namespaces-and-models)
 - [Introduction with migration](#day-8-introduction-with-migration)
+- [Eloquent in laravel](#day-9-eloquent-in-laravel)
 
 # Day-1: Project setup
 ### Project Dependency
@@ -211,7 +212,7 @@ $user->delete();
 - Create a model named `Job` using `php artisan make:model Job`
 - Specifity `job_items` table for `Job` class as laravel by default has `jobs` table
 - Add fillable properties
-- `php artisan tinker` to enter into eloquent terminal and create some records
+- `php artisan tinker` to enter into eloquent terminal, create some records and show them
 
 
 
