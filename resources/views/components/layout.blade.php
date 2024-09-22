@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> {{ $titleText }} | Learn Laravel </title>
 
-    <!-- Tailwind Play CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+   
 
 
 </head>
@@ -49,4 +48,7 @@
     </div>
 </body>
 
+ <!-- Tailwind Play CDN -->
+ <script src="https://cdn.tailwindcss.com"></script>
+ 
 </html>

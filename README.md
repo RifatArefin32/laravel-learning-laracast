@@ -52,3 +52,9 @@ Laravel components provide a convenient way to create reusable pieces of UI, mak
 - The main content for the layout component is accessed as `$slot` variable
 - We can pass some value of the variables in the layout using `<x-slot:variable_name> value </x-slot:variable_name>`
 - Components access the attributes of an HTML element as `$attributes` variable
+
+# Day-4: Make a Pretty Layout Using TailwindCSS
+Add Play CDN script inside the layout and add a layout design from tailwind.css
+```bash
+ <script src="https://cdn.tailwindcss.com"></script>
+```
