@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +14,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+class Job {
+    public static function all() {
+        return [
+            [
+                'id' => 1,
+                'title' => 'Associate Software Engineer',
+                'salary' => 50000,
+                'currency' => 'BDT'
+            ],
+            [
+                'id' => 2,
+                'title' => 'Software Engineer',
+                'salary' => 70000,
+                'currency' => 'BDT'
+            ],
+            [
+                'id' => 3,
+                'title' => 'Senior Software Engineer',
+                'salary' => 120000,
+                'currency' => 'BDT'
+            ],
+        ];
+    }
+}
+
+
 Route::get('/', function () {
-    return view('home');
+    return view('home', [
+        'greeting' => 'Hello',
+        'username' => 'Rifat Arefin'
+    ]);
 });
 
 Route::get('/about', function() {
@@ -25,3 +55,19 @@ Route::get('/contact', function() {
     return view('contact');
 });
 
+Route::get('/jobs', function() {
+    return view('jobs', [
+        'jobs' => Job::all()
+    ]);
+});
+
+Route::get('/jobs/{id}', function($id) {
+    $jobs = Job::all();
+    $job = Arr::first($jobs, function($job) use($id) {
+        return $job['id'] == $id;
+    });
+
+    return view('job-details', [
+        'job' => $job
+    ]);
+});
