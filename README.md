@@ -73,3 +73,9 @@ Add Play CDN script inside the layout and add a layout design from tailwind.css
 - **Blade Directives** provide a set of predefined syntaxes for common programming structures and templating needs in Blade views.
 
 # Day-6: View Data Items and Route Wildcards
+Laravel routes often use wildcards to capture dynamic segments of the URL. These wildcards are defined using curly braces { }. For example: 
+```
+Route::get('/jobs/{id}', function($id) {
+    // do something
+}
+```
