@@ -1,6 +1,17 @@
 # Laravel Learning from Laracast
 **Course Name :** [30 Days to Learn Laravel](https://laracasts.com/series/30-days-to-learn-laravel-11) 
 
+# Contents
+- [Project setup](#day-1-project-setup)
+- [Routes and views](#day-2-routes-and-views)
+- [Create layout file using laravel components](#day-3-create-layout-files-using-laravel-components)
+- [Make a pretty layout using tailwind-css](#day-4-make-a-pretty-layout-using-tailwindcss)
+- [Props and blade directives](#day-5-props-and-blade-directives)
+- [View data items and route wildcards](#day-6-view-data-items-and-route-wildcards)
+- [Autoloading namespaces and models](#day-7-autoloading-namespaces-and-models)
+- [Introduction with migration](#day-8-introduction-with-migration)
+- [Eloquent in laravel](#day-9-eloquent-in-laravel)
+
 # Day-1: Project setup
 ### Project Dependency
 - Install PHP
@@ -154,3 +165,77 @@ DB_PASSWORD="your_password"
 | `default($value)`          | Sets a default value for the column. | `$table->integer('score')->default(0);`  |
 | `after($column)`           | Places the new column after an existing column. | `$table->string('nickname')->after('name');` |
 | `first()`                  | Places the new column at the beginning of the table. | `$table->string('id_number')->first();`|
+
+# Day-9: Eloquent in laravel
+
+Eloquent is Laravel's Object-Relational Mapping (ORM) tool. 
+- It that simplifies database interactions by allowing developers to interact with database tables as if they were PHP objects, 
+- It makes database operations more intuitive and reducing the need for complex SQL queries.
+
+### Key Features of Eloquent
+- **Active Record Implementation:** Each model in Eloquent represents a single table in the database. Operations like CRUD records are done directly on these models.
+- **Fluent Query Builder:** Eloquent provides a fluent, chainable interface to construct database queries using PHP syntax.
+- **Relationships:** Eloquent supports defining relationships between different models such as one-to-one, one-to-many, and many-to-many, making it easy to handle complex data associations.
+- **Eager Loading:** Eloquent allows for eager loading of relationships, minimizing the number of queries executed and improving performance.
+- **Mass Assignment Protection:** Eloquent protects against mass assignment vulnerabilities, allowing you to specify which attributes should be mass-assignable.
+- **Timestamps:** Eloquent automatically manages created_at and updated_at columns, simplifying record tracking.
+- **Soft Deletes:** Eloquent allows for "soft deleting" records, where a record is marked as deleted without actually being removed from the database.
+
+### Basic example of Eloquent
+```php
+use App\Models\User;
+
+// 1. Retrieve all users
+$users = User::all();   
+
+// 2. Create a new user
+$newUser = User::create([
+    'name' => 'John Doe',
+    'email' => 'johndoe@example.com',
+    'password' => bcrypt('password'),
+]);
+
+// 3. Find a user by ID
+$user = User::find(1);  
+
+// 4. Update a user
+$user->name = 'Jane Doe';
+$user->save();
+
+// 5. Delete a user
+$user->delete();    
+
+```
+
+### Step-By-Step in this day
+- Rename `Job` class into `StaticJob`
+- Create a model named `Job` using `php artisan make:model Job`
+- Specifity `job_items` table for `Job` class as laravel by default has `jobs` table
+- Add fillable properties
+- `php artisan tinker` to enter into eloquent terminal, create some records and show them
+
+
+
+### Defining relationships
+```php
+// One-to-One Relationship
+public function profile() {
+    return $this->hasOne(Profile::class);
+}
+
+// One-to-Many Relationship
+public function posts() {
+    return $this->hasMany(Post::class);
+}
+
+// Many-to-Many Relationship
+public function roles() {
+    return $this->belongsToMany(Role::class);
+}
+
+```
+
+### Eager loading
+```php
+$users = User::with('profile')->get();  // Eager load user profiles to minimize queries
+```
