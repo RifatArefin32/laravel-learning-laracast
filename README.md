@@ -1,7 +1,15 @@
 # Laravel Learning from Laracast
 **Course Name :** [30 Days to Learn Laravel](https://laracasts.com/series/30-days-to-learn-laravel-11) 
 
-# Contents
+# To Run This Project
+- Clone the project to your local machine
+- Run `composer install` and `composer update` command
+- Create a database for this project
+- Generate application key with `php artisan key:generate` command
+- Run migration using `php artisan migrate` command
+- Start the application using `php artisan serve` 
+
+# My Notes
 - [01. Project setup](#day-1-project-setup)
 - [02. Routes and views](#day-2-routes-and-views)
 - [03. Create layout file using laravel components](#day-3-create-layout-files-using-laravel-components)
