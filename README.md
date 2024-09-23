@@ -401,3 +401,5 @@ $posts = Post::with(['comments' => function ($query) {
 We can use `laravel debugbar` for development purpose. Search Google and use it.
 
 [Go to top](#my-notes)
+
+# Day-14: Pagination in laravel
