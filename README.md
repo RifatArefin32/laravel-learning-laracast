@@ -22,6 +22,7 @@
 - [10. Model factories](#day-10-model-factories)
 - [11. Two key eloquent models relationship](#day-11-eloquent-model-relationships-in-laravel)
 - [12. Pivot tables and belongstomany relationships](#day-12-pivot-tables-and-belongstomany-relationships)
+- [13. Eager loading and N+1 problem](#day-13-eager-loading-and-n1-problem-in-laravel)
 
 # Day-1: Project setup
 ### Project Dependency
@@ -395,4 +396,6 @@ $posts = Post::with(['comments' => function ($query) {
 }])->get();
 ```
 ### Extra 
-We can use `laravel debugbar` for development purpose. To add 
+We can use `laravel debugbar` for development purpose. Search Google and use it.
+
+[Go to top](#my-notes)
