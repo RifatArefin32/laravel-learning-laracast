@@ -394,3 +394,5 @@ $posts = Post::with(['comments' => function ($query) {
     $query->where('is_approved', true);
 }])->get();
 ```
+### Extra 
+We can use `laravel debugbar` for development purpose. To add 
