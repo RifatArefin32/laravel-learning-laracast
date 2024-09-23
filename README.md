@@ -236,6 +236,10 @@ Create a factory class `JobFactory` for `Job` model
 ```bash
 php artisan make:factory JobFactory -m Job
 ```
+ - Create an `Employer` model and `EmployerFactory` class
+ - Create a migration table for `Employer`
+ - Add `employer_id` as the foreign key for `job_items` table
+ - Change the `JobFactory` class to add foreign key
 
 ### Defining relationships
 ```php
