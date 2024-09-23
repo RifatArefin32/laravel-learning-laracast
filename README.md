@@ -22,6 +22,7 @@
 - [10. Model factories](#day-10-model-factories)
 - [11. Two key eloquent models relationship](#day-11-eloquent-model-relationships-in-laravel)
 - [12. Pivot tables and belongstomany relationships](#day-12-pivot-tables-and-belongstomany-relationships)
+- [13. Eager loading and N+1 problem](#day-13-eager-loading-and-n1-problem-in-laravel)
 
 # Day-1: Project setup
 ### Project Dependency
@@ -268,6 +269,8 @@ php artisan make:factory JobFactory -m Job
  - Add `employer_id` as the foreign key for `job_items` table
  - Change the `JobFactory` class to add foreign key
 
+[Go to top](#my-notes)
+
 # Day-11: Eloquent Model Relationships in Laravel
 
 In Laravel, Eloquent ORM allows you to define relationships between models to work with related data efficiently. 
@@ -362,7 +365,39 @@ App\Models\Job::find(6)->employer
 
 [Go to top](#my-notes)
 
-### Eager loading
+# Day-13: Eager Loading and N+1 Problem in laravel
+Eager loading is a concept in Laravel that allows you to load related models along with the main model in a single query, reducing the number of queries executed. It helps improve performance by preventing the `"N+1" query problem`, which can significantly slow down your application.
+
+**Example**
+Consider two models: `Post` and `Comment`. A post can have many comments, and we want to load all comments for each post.
+
+Without Eager Loading:
 ```php
-$users = User::with('profile')->get();  // Eager load user profiles to minimize queries
+$posts = Post::all(); // 1 query to fetch all posts
+foreach ($posts as $post) {
+    $comments = $post->comments; // N queries, 1 for each post
+}
 ```
+This code will execute 1 query to get all posts and then an additional query for each post to fetch its comments, resulting in `N+1 queries`.
+
+With Eager Loading:
+```php
+$posts = Post::with('comments')->get(); // 1 query to fetch all posts and their comments
+```
+This code will only execute 1 query to fetch all posts along with their comments, avoiding the additional queries.
+### Nested Eager Loading
+You can also eager load nested relationships.
+```php
+$posts = Post::with('comments.user')->get(); // Eager load comments and the user who posted each comment
+```
+### Eager Loading with Constraints
+You can apply constraints to the related models while eager loading.
+```php
+$posts = Post::with(['comments' => function ($query) {
+    $query->where('is_approved', true);
+}])->get();
+```
+### Extra 
+We can use `laravel debugbar` for development purpose. Search Google and use it.
+
+[Go to top](#my-notes)
