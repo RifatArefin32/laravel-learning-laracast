@@ -362,7 +362,35 @@ App\Models\Job::find(6)->employer
 
 [Go to top](#my-notes)
 
-### Eager loading
+# Day-13: Eager Loading and N+1 Problem in laravel
+Eager loading is a concept in Laravel that allows you to load related models along with the main model in a single query, reducing the number of queries executed. It helps improve performance by preventing the `"N+1" query problem`, which can significantly slow down your application.
+
+**Example**
+Consider two models: `Post` and `Comment`. A post can have many comments, and we want to load all comments for each post.
+
+Without Eager Loading:
 ```php
-$users = User::with('profile')->get();  // Eager load user profiles to minimize queries
+$posts = Post::all(); // 1 query to fetch all posts
+foreach ($posts as $post) {
+    $comments = $post->comments; // N queries, 1 for each post
+}
+```
+This code will execute 1 query to get all posts and then an additional query for each post to fetch its comments, resulting in `N+1 queries`.
+
+With Eager Loading:
+```php
+$posts = Post::with('comments')->get(); // 1 query to fetch all posts and their comments
+```
+This code will only execute 1 query to fetch all posts along with their comments, avoiding the additional queries.
+### Nested Eager Loading
+You can also eager load nested relationships.
+```php
+$posts = Post::with('comments.user')->get(); // Eager load comments and the user who posted each comment
+```
+### Eager Loading with Constraints
+You can apply constraints to the related models while eager loading.
+```php
+$posts = Post::with(['comments' => function ($query) {
+    $query->where('is_approved', true);
+}])->get();
 ```
