@@ -45,6 +45,8 @@ Route::get('/contact', function() {
 // Route with Pagination
 Route::get('/jobs', function() {
     return view('jobs', [
+        // 'jobs' => Job::with('employer')->simplePaginate(5),
+        // 'jobs' => Job::with('employer')->cursorPaginate(5),
         'jobs' => Job::with('employer')->paginate(5),
     ]);
 });

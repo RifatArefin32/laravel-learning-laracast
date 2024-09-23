@@ -23,6 +23,7 @@
 - [11. Two key eloquent models relationship](#day-11-eloquent-model-relationships-in-laravel)
 - [12. Pivot tables and belongstomany relationships](#day-12-pivot-tables-and-belongstomany-relationships)
 - [13. Eager loading and N+1 problem](#day-13-eager-loading-and-n1-problem-in-laravel)
+- [14. Pagination in laravel](#day-14-pagination-in-laravel)
 
 # Day-1: Project setup
 ### Project Dependency
@@ -403,3 +404,12 @@ We can use `laravel debugbar` for development purpose. Search Google and use it.
 [Go to top](#my-notes)
 
 # Day-14: Pagination in laravel
+
+- Create pagination in `routes/web.php` file
+- Add paging bar at `job.blade.php` file
+- Publish vendor file for pagination provider and select `laravel pagination`
+```php
+php artisan vendor:publish
+```
+
+[Go to top](#my-notes)
