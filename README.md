@@ -349,11 +349,6 @@ App\Models\Job::find(6)->employer
 ```
 [Go to top](#my-notes)
 
-### Eager loading
-```php
-$users = User::with('profile')->get();  // Eager load user profiles to minimize queries
-```
-
 # Day-12: Pivot Tables and BelongsToMany Relationships
 - Create a model `Tag` with migration and factory class
 - Create `tags` and `job_tag` (pivot table) tables. Note pivot table is named in singular form
@@ -364,3 +359,10 @@ $users = User::with('profile')->get();  // Eager load user profiles to minimize 
 - We can also access the jobs collection using `App\Models\Tag::find(2)->jobs()->get()` this command. We can get items without refetch data from database
 - We can also access the information of `title` column using `App\Models\Tag::find(2)->jobs()->get()->pluck('title')`
 - We can also attach a tag to any job using `attach()` function. For example, `App\Models\Tag::find(2)->jobs()->attach(App\Models\Job::find(3))`
+
+[Go to top](#my-notes)
+
+### Eager loading
+```php
+$users = User::with('profile')->get();  // Eager load user profiles to minimize queries
+```
