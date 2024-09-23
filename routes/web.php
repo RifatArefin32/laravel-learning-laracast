@@ -35,10 +35,19 @@ Route::get('/contact', function() {
 //     ]);
 // });
 
-// Route with Eager Loadin
+// // Route with Eager Loading
+// Route::get('/jobs', function() {
+//     return view('jobs', [
+//         'jobs' => Job::with('employer')->get(),
+//     ]);
+// });
+
+// Route with Pagination
 Route::get('/jobs', function() {
     return view('jobs', [
-        'jobs' => Job::with('employer')->get(),
+        // 'jobs' => Job::with('employer')->simplePaginate(5),
+        // 'jobs' => Job::with('employer')->cursorPaginate(5),
+        'jobs' => Job::with('employer')->paginate(5),
     ]);
 });
 
