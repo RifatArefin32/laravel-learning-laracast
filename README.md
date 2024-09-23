@@ -37,6 +37,8 @@ Create new github repository for your project and add the project to the reposit
 - Add the remote github repository to the local git
 - Add all, commit them and push to the remote repository 
 
+[Go to top](#contents)
+
 # Day-2: Routes and Views
 ### Routes
 - `./routes/web.php` - for routes that handle web requests.
@@ -56,6 +58,8 @@ In Laravel, a `view` is a way to separate our application’s logic from its pre
 - Views are used to represent the output or user interface of your application and typically contain HTML mixed with some **`Laravel Blade templating code`**. 
 - Views are stored in the `./resources/views` directory.
 
+[Go to top](#contents)
+
 # Day-3: Create layout files using laravel components
 Laravel components provide a convenient way to create reusable pieces of UI, making it easier to build layouts and encapsulate small pieces of your application's views into self-contained components.
 
@@ -66,11 +70,14 @@ Laravel components provide a convenient way to create reusable pieces of UI, mak
 - We can pass some value of the variables in the layout using `<x-slot:variable_name> value </x-slot:variable_name>`
 - Components access the attributes of an HTML element as `$attributes` variable
 
+[Go to top](#contents)
+
 # Day-4: Make a Pretty Layout Using TailwindCSS
 Add Play CDN script inside the layout and add a layout design from tailwind.css
 ```bash
  <script src="https://cdn.tailwindcss.com"></script>
 ```
+[Go to top](#contents)
 
 # Day-5: Props and Blade Directives
 
@@ -85,6 +92,8 @@ Add Play CDN script inside the layout and add a layout design from tailwind.css
 - **Props** in Laravel Blade are mainly used to pass data to Blade components.
 - **Blade Directives** provide a set of predefined syntaxes for common programming structures and templating needs in Blade views.
 
+[Go to top](#contents)
+
 # Day-6: View Data Items and Route Wildcards
 Laravel routes often use wildcards to capture dynamic segments of the URL. These wildcards are defined using curly braces { }. For example: 
 ```
@@ -92,6 +101,7 @@ Route::get('/jobs/{id}', function($id) {
     // do something
 }
 ```
+[Go to top](#contents)
 
 # Day-7: Autoloading, Namespaces and Models
 ### Autoloading
@@ -106,6 +116,8 @@ Namespaces in Laravel help organize code and prevent class name conflicts. They 
 Models in Laravel represent database tables and allow you to interact with the data. They are typically stored in the `app/Models` directory and extend the `Illuminate\Database\Eloquent\Model` class, providing an Active Record implementation for database operations.
 - Location: `app/Models` (default).
 - Example: `User::all()` retrieves all records from the users table.
+
+[Go to top](#contents)
 
 # Day-8: Introduction with Migration
 Create a database for the project in MySQL and configure the database at `.env` file.
@@ -168,6 +180,8 @@ DB_PASSWORD="your_password"
 | `after($column)`           | Places the new column after an existing column. | `$table->string('nickname')->after('name');` |
 | `first()`                  | Places the new column at the beginning of the table. | `$table->string('id_number')->first();`|
 
+[Go to top](#contents)
+
 # Day-9: Eloquent in laravel
 
 Eloquent is Laravel's Object-Relational Mapping (ORM) tool. 
@@ -215,6 +229,8 @@ $user->delete();
 - Specifity `job_items` table for `Job` class as laravel by default has `jobs` table
 - Add fillable properties
 - `php artisan tinker` to enter into eloquent terminal, create some records and show them
+
+[Go to top](#contents)
 
 # Day-10: Model Factories
 
@@ -322,6 +338,7 @@ Suppose, there is a `One to Many` relationship between `Job` and `Employer` mode
 ```bash
 App\Models\Job::find(6)->employer
 ```
+[Go to top](#contents)
 
 ### Eager loading
 ```php
