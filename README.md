@@ -315,6 +315,14 @@ public function users() {
 
 ```
 
+### Lazy Loading
+Lazy loading refers to the delay of a SQL query until the last possible moment. 
+
+Suppose, there is a `One to Many` relationship between `Job` and `Employer` models. One Job `belongs to` one employer and an employer `has many` jobs. Now I can can access the `employer` information using the relationship definition function name defined at the model as if employer is a property of Job class. This way of getting information is known as **Lazy loading**. 
+```bash
+App\Models\Job::find(6)->employer
+```
+
 ### Eager loading
 ```php
 $users = User::with('profile')->get();  // Eager load user profiles to minimize queries

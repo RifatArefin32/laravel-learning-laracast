@@ -16,5 +16,9 @@ class Job extends Model
      * and specify it in the class definition
      */
     protected $table = 'job_items'; 
-    protected $fillable = ['title', 'salary', 'currency', 'description'];
+    protected $fillable = ['title', 'employer_id', 'salary', 'currency', 'description'];
+
+    public function employer() {
+        return $this->belongsTo(Employer::class);
+    }
 }
