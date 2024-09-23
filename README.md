@@ -2,16 +2,16 @@
 **Course Name :** [30 Days to Learn Laravel](https://laracasts.com/series/30-days-to-learn-laravel-11) 
 
 # Contents
-- [Project setup](#day-1-project-setup)
-- [Routes and views](#day-2-routes-and-views)
-- [Create layout file using laravel components](#day-3-create-layout-files-using-laravel-components)
-- [Make a pretty layout using tailwind-css](#day-4-make-a-pretty-layout-using-tailwindcss)
-- [Props and blade directives](#day-5-props-and-blade-directives)
-- [View data items and route wildcards](#day-6-view-data-items-and-route-wildcards)
-- [Autoloading namespaces and models](#day-7-autoloading-namespaces-and-models)
-- [Introduction with migration](#day-8-introduction-with-migration)
-- [Eloquent in laravel](#day-9-eloquent-in-laravel)
-- [Model factories](#day-10-model-factories)
+- [01. Project setup](#day-1-project-setup)
+- [02. Routes and views](#day-2-routes-and-views)
+- [03. Create layout file using laravel components](#day-3-create-layout-files-using-laravel-components)
+- [04. Make a pretty layout using tailwind-css](#day-4-make-a-pretty-layout-using-tailwindcss)
+- [05. Props and blade directives](#day-5-props-and-blade-directives)
+- [06. View data items and route wildcards](#day-6-view-data-items-and-route-wildcards)
+- [07. Autoloading namespaces and models](#day-7-autoloading-namespaces-and-models)
+- [08. Introduction with migration](#day-8-introduction-with-migration)
+- [09. Eloquent in laravel](#day-9-eloquent-in-laravel)
+- [10. Model factories](#day-10-model-factories)
 
 # Day-1: Project setup
 ### Project Dependency
