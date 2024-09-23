@@ -10,6 +10,12 @@
             <strong>Position: </strong> {{ $job['title'] }}
         </div>
         <div class="m-2 p-4 shadow-lg">
+            <strong>Company: </strong> {{ $job['employer']->name }}
+        </div>
+        <div class="m-2 p-4 shadow-lg">
+            <strong>Location: </strong> {{ $job['employer']->address }}
+        </div>
+        <div class="m-2 p-4 shadow-lg">
             <strong>Salary: </strong> {{ $job['salary'] . " " . $job['currency'] }}
         </div>
         <div class="m-2 p-4 shadow-lg">
