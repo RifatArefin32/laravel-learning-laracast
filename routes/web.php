@@ -29,9 +29,16 @@ Route::get('/contact', function() {
     return view('contact');
 });
 
+// Route::get('/jobs', function() {
+//     return view('jobs', [
+//         'jobs' => Job::all()
+//     ]);
+// });
+
+// Route with Eager Loadin
 Route::get('/jobs', function() {
     return view('jobs', [
-        'jobs' => Job::all()
+        'jobs' => Job::with('employer')->get(),
     ]);
 });
 
