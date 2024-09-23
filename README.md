@@ -12,7 +12,7 @@
 - [08. Introduction with migration](#day-8-introduction-with-migration)
 - [09. Eloquent in laravel](#day-9-eloquent-in-laravel)
 - [10. Model factories](#day-10-model-factories)
-- [11. Two key eloquent models relationship](#)
+- [11. Two key eloquent models relationship](#day-11-eloquent-model-relationships-in-laravel)
 
 # Day-1: Project setup
 ### Project Dependency
@@ -243,13 +243,9 @@ php artisan make:factory JobFactory -m Job
  - Add `employer_id` as the foreign key for `job_items` table
  - Change the `JobFactory` class to add foreign key
 
-# Day-10: Two Key Eloquent Models Relationship
+# Day-11: Eloquent Model Relationships in Laravel
 
-# Eloquent Model Relationships in Laravel
-
-In Laravel, Eloquent ORM allows you to define relationships between models to work with related data efficiently. Below is a table summarizing the types of Eloquent relationships, their descriptions, and when to use them, followed by examples for each.
-
-## Eloquent Relationship Types
+In Laravel, Eloquent ORM allows you to define relationships between models to work with related data efficiently. 
 
 | Relationship Type | Description | When to Use |
 |-------------------|-------------|-------------|
@@ -261,7 +257,7 @@ In Laravel, Eloquent ORM allows you to define relationships between models to wo
 | **Polymorphic One-to-Many**  | A model can belong to multiple other models via a polymorphic association. | When multiple models can have many comments, like posts and videos having comments using a single comments table. |
 | **Polymorphic Many-to-Many** | Multiple models can be associated with other models of different types via a pivot table. | When multiple models can have tags, like posts, videos, and users having tags using a single tags and taggables table. |
 
-## Examples of Eloquent Relationships
+### Examples of Eloquent Relationships
 
 ### 1. One-to-One Relationship
 **Example:** A `User` has one `Profile`.
@@ -289,7 +285,7 @@ public function user() {
 - Example: The Profile "belongs to" a User, so you would use `belongsTo()` in the Profile model because it references the User model.
 
 
-### 2. Example of One to Many Relationship 
+### 2. One to Many Relationship 
 **Example:** A `Post` has many `Comments`.
 ```php
 // Post Model
