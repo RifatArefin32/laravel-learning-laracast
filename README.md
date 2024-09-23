@@ -21,6 +21,7 @@
 - [09. Eloquent in laravel](#day-9-eloquent-in-laravel)
 - [10. Model factories](#day-10-model-factories)
 - [11. Two key eloquent models relationship](#day-11-eloquent-model-relationships-in-laravel)
+- [12. Pivot tables and belongstomany relationships](#day-12-pivot-tables-and-belongstomany-relationships)
 
 # Day-1: Project setup
 ### Project Dependency
@@ -353,3 +354,7 @@ App\Models\Job::find(6)->employer
 $users = User::with('profile')->get();  // Eager load user profiles to minimize queries
 ```
 
+# Day-12: Pivot Tables and BelongsToMany Relationships
+- Create a model `Tag` with migration and factory class
+- Create `tags` and `job_tag` (pivot table) tables. Note pivot table is named in singular form
+- Run `php artisan migrate` 
