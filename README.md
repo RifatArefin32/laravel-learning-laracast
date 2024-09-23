@@ -269,6 +269,8 @@ php artisan make:factory JobFactory -m Job
  - Add `employer_id` as the foreign key for `job_items` table
  - Change the `JobFactory` class to add foreign key
 
+[Go to top](#my-notes)
+
 # Day-11: Eloquent Model Relationships in Laravel
 
 In Laravel, Eloquent ORM allows you to define relationships between models to work with related data efficiently. 
