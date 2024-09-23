@@ -359,3 +359,8 @@ $users = User::with('profile')->get();  // Eager load user profiles to minimize 
 - Create `tags` and `job_tag` (pivot table) tables. Note pivot table is named in singular form
 - Run `php artisan migrate` 
 - Setup eloquent relationship between `Job` and `Tag` models
+- Check the tags related with a job as `App\Models\Job::find(1)->tags`. `tags` can be accessed as a property
+- Similarly the jobs related with a tag using `App\Models\Tag::find(1)->jobs`. `jobs` can be accessed as a property
+- We can also access the jobs collection using `App\Models\Tag::find(2)->jobs()->get()` this command. We can get items without refetch data from database
+- We can also access the information of `title` column using `App\Models\Tag::find(2)->jobs()->get()->pluck('title')`
+- We can also attach a tag to any job using `attach()` function. For example, `App\Models\Tag::find(2)->jobs()->attach(App\Models\Job::find(3))`
