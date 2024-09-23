@@ -12,6 +12,7 @@
 - [08. Introduction with migration](#day-8-introduction-with-migration)
 - [09. Eloquent in laravel](#day-9-eloquent-in-laravel)
 - [10. Model factories](#day-10-model-factories)
+- [11. Two key eloquent models relationship](#)
 
 # Day-1: Project setup
 ### Project Dependency
@@ -242,21 +243,78 @@ php artisan make:factory JobFactory -m Job
  - Add `employer_id` as the foreign key for `job_items` table
  - Change the `JobFactory` class to add foreign key
 
-### Defining relationships
+# Day-10: Two Key Eloquent Models Relationship
+
+# Eloquent Model Relationships in Laravel
+
+In Laravel, Eloquent ORM allows you to define relationships between models to work with related data efficiently. Below is a table summarizing the types of Eloquent relationships, their descriptions, and when to use them, followed by examples for each.
+
+## Eloquent Relationship Types
+
+| Relationship Type | Description | When to Use |
+|-------------------|-------------|-------------|
+| **One-to-One** | A single record in one table is associated with a single record in another table. | When a user has a single profile or a company has a single address. |
+| **One-to-Many** | A single record in one table is associated with multiple records in another table. | When a post has many comments, or a category has many products. |
+| **Many-to-Many** | Multiple records in one table are related to multiple records in another table via a pivot table.| When users belong to multiple roles or products belong to multiple tags. |
+| **Has Many Through** | Provides a way to access a distant one-to-many relationship through an intermediate model. | When a country has many posts through users, or a mechanic has many car owners through cars. |
+| **Polymorphic One-to-One** | A single model can belong to multiple other models on a single association. | When a photo can be associated with either a user or a product (a single polymorphic table). |
+| **Polymorphic One-to-Many**  | A model can belong to multiple other models via a polymorphic association. | When multiple models can have many comments, like posts and videos having comments using a single comments table. |
+| **Polymorphic Many-to-Many** | Multiple models can be associated with other models of different types via a pivot table. | When multiple models can have tags, like posts, videos, and users having tags using a single tags and taggables table. |
+
+## Examples of Eloquent Relationships
+
+### 1. One-to-One Relationship
+**Example:** A `User` has one `Profile`.
+
 ```php
-// One-to-One Relationship
+// User Model
 public function profile() {
     return $this->hasOne(Profile::class);
 }
 
-// One-to-Many Relationship
-public function posts() {
-    return $this->hasMany(Post::class);
+// Profile Model
+public function user() {
+    return $this->belongsTo(User::class);
+}
+```
+
+### When to Use hasOne()
+- The `hasOne()` method is used in the model that "owns" the other model. 
+- It indicates that a single instance of the current model is related to a single instance of another model.
+- Example: If a User "has one" Profile, you would use `hasOne()` in the User model because the User is the parent or owner of the Profile.
+
+### When to use belongsTo()
+- The `belongsTo()` method is used in the model that "belongs to" another model. 
+- It indicates that the current model contains the foreign key and is associated with a single instance of the related model.
+- Example: The Profile "belongs to" a User, so you would use `belongsTo()` in the Profile model because it references the User model.
+
+
+### 2. Example of One to Many Relationship 
+**Example:** A `Post` has many `Comments`.
+```php
+// Post Model
+public function comments() {
+    return $this->hasMany(Comment::class);
 }
 
-// Many-to-Many Relationship
+// Comment Model
+public function post() {
+    return $this->belongsTo(Post::class);
+}
+
+```
+
+### 3. Many-to-Many Relationship
+**Example:** A **User** belongs to many **Roles**.
+```php
+// User Model
 public function roles() {
     return $this->belongsToMany(Role::class);
+}
+
+// Role Model
+public function users() {
+    return $this->belongsToMany(User::class);
 }
 
 ```
