@@ -11,6 +11,7 @@
 - [Autoloading namespaces and models](#day-7-autoloading-namespaces-and-models)
 - [Introduction with migration](#day-8-introduction-with-migration)
 - [Eloquent in laravel](#day-9-eloquent-in-laravel)
+- [Model factories](#day-10-model-factories)
 
 # Day-1: Project setup
 ### Project Dependency
@@ -214,7 +215,19 @@ $user->delete();
 - Add fillable properties
 - `php artisan tinker` to enter into eloquent terminal, create some records and show them
 
+# Day-10: Model Factories
 
+In Laravel, factories are a convenient way to generate new model instances for testing or seeding the database. Factories allow you to create instances of the model with fake or random data. Factory definitions are stored in `database/factories` and define how the model's attributes should be populated with data. 
+
+Create a factory data for User model
+```bash
+App\Models\User::factory()->create()
+```
+
+Create 3 factory fake data for User model
+```bash
+App\Models\User::factory(3)->create()
+```
 
 ### Defining relationships
 ```php
@@ -239,3 +252,4 @@ public function roles() {
 ```php
 $users = User::with('profile')->get();  // Eager load user profiles to minimize queries
 ```
+
