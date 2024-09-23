@@ -358,3 +358,4 @@ $users = User::with('profile')->get();  // Eager load user profiles to minimize 
 - Create a model `Tag` with migration and factory class
 - Create `tags` and `job_tag` (pivot table) tables. Note pivot table is named in singular form
 - Run `php artisan migrate` 
+- Setup eloquent relationship between `Job` and `Tag` models
