@@ -228,6 +228,10 @@ Create 3 factory fake data for User model
 ```bash
 App\Models\User::factory(3)->create()
 ```
+Create a factory class `JobFactory` for `Job` model
+```bash
+php artisan make:factory JobFactory -m Job
+```
 
 ### Defining relationships
 ```php
