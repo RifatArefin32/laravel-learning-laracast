@@ -413,3 +413,10 @@ php artisan vendor:publish
 ```
 
 [Go to top](#my-notes)
+
+ 
+# Day-15: Seeder in laravel
+A seeder in Laravel is a class used to populate your database with test or dummy data. This is particularly useful during the development phase to quickly fill your database with data for testing purposes. Seeders are typically used to insert data into your database tables that will help you test your application's functionality, without having to manually enter it each time.
+- Testing and Development: Seeders allow developers to populate the database with sample data that can be used for testing and development purposes.
+- Consistency: You can ensure consistent data sets across different environments, such as local development, staging, and production.
+- Automation: Seeders automate the process of adding data to your database, making it easier and faster than manual entry.
