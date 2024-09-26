@@ -413,3 +413,26 @@ php artisan vendor:publish
 ```
 
 [Go to top](#my-notes)
+
+# Day-15: Seeder
+In Laravel, a seeder is a class that is used to populate your database with test or initial data. Seeders are useful for filling the database with dummy data for testing purposes or setting up some default records in production.
+
+### Create a seeder class
+```bash
+php artisan make:seed 
+```
+
+### Execute a seeder class
+```bash
+php artisan db:seed --class=UsersTableSeeder
+```
+
+### Execute all seeders defined in the `DatabaseSeeder.php` class (root class)
+```bash
+php artisan db:seed
+```
+
+### Refresh the database and seed
+```bash
+php artisan migrate:fresh --seed
+```
