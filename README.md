@@ -24,6 +24,7 @@
 - [12. Pivot tables and belongstomany relationships](#day-12-pivot-tables-and-belongstomany-relationships)
 - [13. Eager loading and N+1 problem](#day-13-eager-loading-and-n1-problem-in-laravel)
 - [14. Pagination in laravel](#day-14-pagination-in-laravel)
+- [15. Database seeder](#day-15-seeder)
 
 # Day-1: Project setup
 ### Project Dependency
@@ -436,3 +437,5 @@ php artisan db:seed
 ```bash
 php artisan migrate:fresh --seed
 ```
+
+[Go to top](#my-notes)
